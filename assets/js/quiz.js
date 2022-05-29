@@ -53,9 +53,19 @@ function displayQuestions(questionIndex) {
         // Adds list item to list of questions
         listEl.appendChild(listItemEl);
         // Make list items clickable and see if the item clicked is the right answer
-        listItemEl.addEventListener("click", correctAnswer());
+        listItemEl.addEventListener("click", function(event) {
+            var option = event.target;
+            if (option.textContent === questionsArray[questionIndex].answer) {
+                console.log("correct");
+            }
+            else {
+                console.log("incorrect");
+            }
+        });
     }
 }
+
+
 
 startButtonEl.addEventListener("click", function() {
     // START TIMER
